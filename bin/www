@@ -82,6 +82,8 @@ function onError(error) {
  */
 
 function onListening() {
+  console.log(`Hello! So nice to see you today!
+  \nYou're listening on port: ${port}`);
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr

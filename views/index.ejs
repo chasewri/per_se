@@ -39,7 +39,12 @@
                             <li><a href="#">Categories</a></li>
                             <li><a href="#">Create a New Recipe</a></li>
                             <li class="uk-nav-divider"></li>
-                            <li><a href="#">Log In</a></li>
+                            <% if (user) { %>
+                            <li><a href="#">Logged in as <%= user.name %></a></li>
+                            <li><a href="/logout">Logout</a></li>
+                            <% } else { %>
+                            <li><a href="/google/oauth"></a>Log In</li>
+                            <% } %>
                         </ul>
                     </div>
                 </li>

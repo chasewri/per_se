@@ -17,7 +17,8 @@ body {
 }
 #sign-up {
   height: 50vh;
-  background: linear-gradient(45deg, white, darkGray);
+  background: linear-gradient(white, black);
+  background: -webkit-linear-gradient(white, darkgray);
 }
 #sign-up button {
   margin-top: 8vh;

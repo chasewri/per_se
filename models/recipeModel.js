@@ -5,6 +5,7 @@ const recipeSchema = new Schema({
     updated: { type: Date, default: Date.now },
     name: String,
     imgUrl: String,
+    imgThumb: String,
     recipe: String,
     category: {
         type: Schema.Types.ObjectId,

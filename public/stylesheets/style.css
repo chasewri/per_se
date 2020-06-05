@@ -1,5 +1,46 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: plum;
+  background-color: white;
   min-height: 100vh;
+}
+#index-hero {
+  background-image: url('../img/hero-img.jpg');
+  /* Photo by Becca Tapert on Unsplash */
+  height: 125vh;
+  background-size: cover;
+  text-shadow: black 5px;
+}
+#index-hero h1 {
+  font-size: 5em;
+  font-weight: bold;
+  font-style: italic;
+}
+#sign-up {
+  height: 50vh;
+  background: linear-gradient(45deg, white, darkGray);
+}
+#sign-up button {
+  margin-top: 8vh;
+  padding: 13px 30px;
+  font-size: 2em;
+  color: plum;
+  border-width: 5px;
+  border-radius: 10px;
+}
+#call-to {
+  height: 100vh;
+}
+.uk-navbar-nav>li>a {
+  color: black;
+  font-size: 2em;
+}
+#logo {
+  background-image: url(../img/logo-black.png);
+  min-width: 40vw;
+  background-size: contain;
+  background-position-y: center;
+  background-repeat: no-repeat;
+}
+.uk-navbar-container {
+  min-height: 10vh;
 }

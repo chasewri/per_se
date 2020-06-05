@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +12,140 @@
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
 </head>
-<body>
-  <div id="<%= heroId %>" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top" uk-parallax="bgy: -200" style="background-image: url('images/dark.jpg');">
 
-    <h1 class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="y: 100,0">Per Se</h1>
-    <h2 class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="y: 100,0">Become Empowered to Cook with Heart</h2>
+<body>
+  <div class="uk-position-relative">
+
+    <nav class="uk-navbar-container" uk-navbar="dropbar: true">
+
+        <div class="uk-navbar-left">
+
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a id="logo" href=""></span></a>
+                </li>
+        </div>
+
+        <div class="uk-navbar-right">
+
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="#">Explore</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li class="uk-active"><a href="#">Active</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li class="uk-nav-header">Explore</li>
+                            <li><a href="#">Categories</a></li>
+                            <li><a href="#">All Recipes</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="#">Create a New Recipe</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="uk-navbar-dropbar"></div>
 
   </div>
-  
+
+
+  <div id="<%= heroId %>" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
+    uk-parallax="bgy: -300">
+
+    <h1 class="uk-width-1-1@m uk-width-1-1 uk-text-center uk-margin-auto uk-margin-auto-vertical"
+      uk-parallax="y: 100,0">Per Se</h1>
+    <h2 class="uk-width-1-1@m uk-width-1-1 uk-text-center uk-margin-auto uk-margin-auto-vertical"
+      uk-parallax="y: 100,0"><span uk-icon="icon: heart"></span>Become Empowered to Cook with Heart<span uk-icon="icon: heart"></span></h2>
+  </div>
+  <div id="sign-up" class="uk-flex">
+    <div class="uk-width-1-1@m uk-width-1-1 uk-text-center uk-margin-auto uk-margin-auto-vertical">
+      <h2>
+        Log in now to post and share recipes with the enitre community!
+      </h2>
+      <img src="../public/img/logo-black.png" alt="">
+      <button class="uk-button uk-button-default">SIGN UP</button>
+    </div>
+  </div>
+
+ 
+    <div id="call-to" class="uk-flex">
+      <div class="uk-child-width-1-3@m" uk-grid>
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-media-top">
+                    <img src="https://picsum.photos/500/300?blur" alt="">
+                </div>
+                <div class="uk-card-body">
+                    <h3 class="uk-card-title">Media Top</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+              <div class="uk-card-media-top">
+                  <img src="https://picsum.photos/1000/600?blur" alt="">
+              </div>
+              <div class="uk-card-body">
+                  <h3 class="uk-card-title">Media Top</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+              </div>
+          </div>
+      </div>
+      <div>
+        <div class="uk-card uk-card-default">
+            <div class="uk-card-media-top">
+                <img src="https://picsum.photos/502/300?blur" alt="">
+            </div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title">Media Top</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+        </div>
+    </div>
+    <div>
+      <div class="uk-card uk-card-default">
+          <div class="uk-card-media-top">
+              <img src="https://picsum.photos/500/300?blur" alt="">
+          </div>
+          <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+          </div>
+      </div>
+  </div>
+  <div>
+    <div class="uk-card uk-card-default">
+        <div class="uk-card-media-top">
+            <img src="https://picsum.photos/1000/600?blur" alt="">
+        </div>
+        <div class="uk-card-body">
+            <h3 class="uk-card-title">Media Top</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        </div>
+    </div>
+</div>
+<div>
+  <div class="uk-card uk-card-default">
+      <div class="uk-card-media-top">
+          <img src="https://picsum.photos/502/300?blur" alt="">
+      </div>
+      <div class="uk-card-body">
+          <h3 class="uk-card-title">Media Top</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+
+    </div>
+    </div>
+
 </body>
+
 </html>

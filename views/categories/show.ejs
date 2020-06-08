@@ -35,7 +35,9 @@
                         <div class="uk-navbar-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="#">Active</a></li>
+                                <% if (recipes[0]) { %>
                                 <li><a href="/"><%= recipes[0].category %> Recipes</a></li>
+                                <% } %>
                                 <li class="uk-nav-header">Explore</li>
                                 <li><a href="/">HOME</a></li>
                                 <li><a href="#">Most Recent Recipes</a></li>
@@ -65,8 +67,14 @@
     <div id="categoriesShow-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
         uk-parallax="bgy: -200">
 
+             <% if (recipes[0]) { %>
         <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="y: 100,0">
+            
             <%= recipes[0].category %> Recipes</h1>
+            <% } else { %>
+            <h1>Sorry, there are no recipes in this collection. Please add one!</h1>    
+            <% } %>
+
 
     </div>
     <div class="uk-flex break"></div>

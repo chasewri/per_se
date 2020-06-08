@@ -34,6 +34,4 @@ This project was organized using a Trello Kanban board that is visible [here.](h
 - I need to use the partials better
 - I need to use Sass, so I don't have to copy/paste CSS
 - Comments for recipes
-- Anyone can change recipes because I put the edit/delete buttons on the show page
-
 

@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const Category = require("./categoryModel");
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
+var Category = require("./categoryModel");
 
-const recipeSchema = new Schema(
+var recipeSchema = new Schema(
   {
     updated: { type: Date, default: Date.now },
     name: {

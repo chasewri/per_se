@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
 
-const categorySchema = new Schema(
+var categorySchema = new Schema(
   {
     category: String,
     imgUrl: String,

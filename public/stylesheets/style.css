@@ -40,7 +40,7 @@ h1 {
 }
 .uk-navbar-nav>li>a {
   color: black;
-  font-size: 2em;
+  font-size: 1.2em;
 }
 #logo {
   background-image: url(../img/logo-black.png);
@@ -87,7 +87,7 @@ form > textarea {
   margin: 7vh auto;
 }
 .uk-navbar-dropdown-nav>li>a {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 .uk-navbar-dropdown-nav .uk-nav-header {
   font-size: 1.5em;
@@ -104,4 +104,26 @@ form > textarea {
 }
 .break {
   height: 15vh;
+}
+#show-hero {
+  background-image: url(../img/show-hero.jpg);
+  /* Photo by Edgar Castrejon on Unsplash */
+  height: 75vh;
+  background-size: cover;
+}
+#show-hero h1 {
+  font-size: 4em;
+  color: plum;
+}
+article > p, li {
+  font-size: 2em;
+}
+article {
+  align-content: center;
+}
+article img {
+  max-width: 100vw;
+}
+.bold {
+  font-weight: bold;
 }

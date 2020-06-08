@@ -7,6 +7,7 @@ router.get('/', isLoggedIn, recipesCtrl.index);
 router.get('/myRecipes', isLoggedIn, recipesCtrl.myRecipes);
 router.get('/new', isLoggedIn, recipesCtrl.new);
 router.post('/add', isLoggedIn, recipesCtrl.create);
+router.get('/:id', recipesCtrl.show);
 
 function isLoggedIn(req, res, next) {
   if ( req.isAuthenticated() ) return next();

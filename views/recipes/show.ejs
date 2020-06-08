@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title><%= recipe.name %></title>
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css" />
     <link rel="stylesheet" href="../stylesheets/style.css">
@@ -25,7 +25,6 @@
                         <a id="logo" href=""></a>
                     </li>
             </div>
-
             <div class="uk-navbar-right">
 
                 <ul class="uk-navbar-nav">
@@ -34,17 +33,19 @@
                         <div class="uk-navbar-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="#">Active</a></li>
-                                <li><a href="#">Create a New Recipe</a></li>
+                                <li><a href="#"><%= recipe.name %></a></li>
                                 <li class="uk-nav-header">Explore</li>
-                                <li><a href="/">HOME</a></li>
+                                <li><a href="/">Home</a></li>
                                 <li><a href="/categories">Categories</a></li>
-                                <li><a href="/recipes/myrecipes">My Recipes</a></li>
+                                <li><a href="/recipes">Recipes</a></li>
                                 <li class="uk-nav-divider"></li>
                                 <% if (user) { %>
-                                <li><a href="#">Logged in as <%= user.name %></a></li>
+                                <li><a href="#"></a>Logged in as <%= user.name %></li>
+                                <li><a href="/recipes/new">Create a New Recipe</a></li>
+                                <li><a href="/recipes/myrecipes">My Recipes</a></li>
                                 <li><a href="/logout">Logout</a></li>
                                 <% } else { %>
-                                <li><a href="/auth/google"></a>Log In</li>
+                                <li><a href="/auth/google">Log In</a></li>
                                 <% } %>
                             </ul>
                         </div>
@@ -57,28 +58,38 @@
         <div class="uk-navbar-dropbar"></div>
 
     </div>
-    <div id="create-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
-        uk-parallax="bgy: -200">
+    <div id="show-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
+    uk-parallax="bgy: -200">
 
-        <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical"
-            uk-parallax="y: 100,0">Create a New Recipe to Share!</h1>
+    <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical"
+        uk-parallax="y: 100,0"><%= recipe.name %></h1>
 
+</div>
+<div class="uk-flex break"></div>
+<article class="uk-article">
+
+    <h2 class="uk-article-title"><%= recipe.name %></h2>
+
+    <p class="uk-article-meta">Created by <%= recipe.authorName %> at <%= recipe.createdAt %> </p>
+
+    <p class="uk-text-lead"><%= recipe.description %></p>
+    <div class="artImg">
+    <img src="<%= recipe.imgUrl %>" alt="<%= recipe.name %>">
     </div>
-    <div class="uk-flex break"></div>
-    <form action="/recipes/add" method="POST" autocomplete="off">
-        <input class="uk-input" type="text" name="name" placeholder="Recipe Name"> <br>
-        <input class="uk-input" type="text" name="imgUrl" placeholder="Image Url"> <br>
-        <input class="uk-input" type="text" name="description" placeholder="Short Description"> <br>
-        <label for="ingredients">All recipe ingredients here:</label> <br>
-        <textarea class="uk-textarea" name="ingredients" id="ingredients" cols="30" rows="10"></textarea><br>
-        <label for="directions">All recipe steps go here:</label> <br>
-        <textarea class="uk-textarea" name="directions" id="directions" cols="30" rows="10"></textarea><br>
-        <select class="uk-select" name="category">
-            <% categories.forEach(function(c) { %>
-                <option><%= c.category %></option> 
-            <%   }) %>
-        </select>
-        <input class="uk-input" type="submit" value="CREATE">
-    </form>
+    <p class="bold">Ingredients:</p>
+    <ul>
+        <% const arr = recipe.ingredients.split(',');
+            arr.forEach(function(i) { %>
+                <li><%= i %></li>
+          <%  }) %>   
+    </ul>
+    <hr>
+    <p class="bold">Directions:</p>
+    <% const dirArr = recipe.directions.split('.');
+        dirArr.forEach(function(d) { %>
+            <p><%= d %></p>
+    <%   }) %>
 
-    <%- include('../partials/_footer') %>
+</article>
+
+<%- include('../partials/_footer') %>

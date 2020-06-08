@@ -23,14 +23,16 @@
                                 <li class="uk-active"><a href="#">Active</a></li>
                                 <li><a href="#">Home</a></li>
                                 <li class="uk-nav-header">Explore</li>
-                                <li><a href="#">Categories</a></li>
-                                <li><a href="/recipes/new">Create a New Recipe</a></li>
+                                <li><a href="/categories">Categories</a></li>
+                                <li><a href="/recipes">Recipes</a></li>
                                 <li class="uk-nav-divider"></li>
                                 <% if (user) { %>
                                 <li><a href="#"></a>Logged in as <%= user.name %></li>
+                                <li><a href="/recipes/new">Create a New Recipe</a></li>
+                                <li><a href="/recipes/myrecipes">My Recipes</a></li>
                                 <li><a href="/logout">Logout</a></li>
                                 <% } else { %>
-                                <li><a href="/users">Log In</a></li>
+                                <li><a href="/auth/google">Log In</a></li>
                                 <% } %>
                             </ul>
                         </div>
@@ -60,7 +62,7 @@
             <h2>
                 Log in now to post and share recipes with the enitre community!
             </h2>
-            <a href="/users"><button class="uk-button uk-button-default">LOG IN</button></a>
+            <a href="/auth/google"><button class="uk-button uk-button-default">LOG IN</button></a>
         </div>
     </div>
 
@@ -75,9 +77,9 @@
                         <img src="<%= r.imgUrl %>" alt="<%= r.name %>">
                     </div>
                     <div class="uk-card-body">
-                        <h3 class="uk-card-title"><%= r.name %></h3>
-                        <h3><%= r.authorName %></h3>
-                        <h3><a href="/categories"><%= r.category %></a></h3>
+                        <h3 class="uk-card-title"><a href="/recipes/<%= r._id %>"><%= r.name %></a></h3>
+                        <h5><%= r.authorName %></h5>
+                        <h5><a href="/categories"><%= r.category %></a></h5>
                         <p><%= r.description %></p>
                     </div>
                 </div>

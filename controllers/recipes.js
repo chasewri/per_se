@@ -7,11 +7,19 @@ module.exports = {
     new: newRecipe,
     myRecipes,
     create,
+    show,
     
+}
+function show(req, res) {
+    Recipe.findById(req.params.id, function(err, recipe) {
+        res.render('recipes/show', {
+            user: req.user,
+            recipe: recipe
+        });
+    });
 }
 
 function newRecipe(req, res) {
-    
     Category.find({}, function(err, categories) {  
         res.render('recipes/new', 
         { 

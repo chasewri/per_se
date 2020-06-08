@@ -34,11 +34,10 @@
                         <div class="uk-navbar-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="#">Active</a></li>
-                                <li><a href="#">My Recipes</a></li>
+                                <li><a href="#">Most Recent Recipes</a></li>
                                 <li class="uk-nav-header">Explore</li>
                                 <li><a href="/">HOME</a></li>
                                 <li><a href="/categories">Categories</a></li>
-                                <li><a href="/recipes">Recipes</a></li>
                                 <li class="uk-nav-divider"></li>
                                 <% if (user) { %>
                                     <li><a href="#">Logged in as <%= user.name %></a></li>
@@ -46,7 +45,9 @@
                                     <li><a href="/recipes/myrecipes">My Recipes</a></li>
                                     <li><a href="/logout">Logout</a></li>
                                 <% } else { %>
-                                    <li><a href="/google/oauth"></a>Log In</li>
+
+                                    <li><a href="/auth/google"></a>Log In</li>
+
                                 <% } %>
                             </ul>
                         </div>
@@ -59,15 +60,15 @@
         <div class="uk-navbar-dropbar"></div>
 
     </div>
-    <div id="myRecipe-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
+    <div id="allRecipe-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
         uk-parallax="bgy: -200">
 
         <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical"
-            uk-parallax="y: 100,0"><%= user.name %>'s Current Recipes</h1>
+            uk-parallax="y: 100,0">Most Recent Recipes</h1>
 
     </div>
     <div class="uk-flex break"></div>
-    
+
     <div id="call-to" class="uk-flex">
         <div class="uk-child-width-1-3@m" uk-grid>
             <% if (recipes) { %>
@@ -91,4 +92,4 @@
             <% } %>
         </div>
     </div> 
-    <%- include('../partials/_footer') %>
+  

@@ -14,7 +14,6 @@
             </div>
 
             <div class="uk-navbar-right">
-
                 <ul class="uk-navbar-nav">
                     <li>
                         <a href="#">Explore</a>
@@ -47,49 +46,61 @@
     </div>
 
     <div id="container">
-    <div id="<%= heroId %>" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
-        uk-parallax="bgy: -300">
+        <div id="<%= heroId %>" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
+            uk-parallax="bgy: -300">
 
-        <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical"
-            uk-parallax="y: 100,0">Per Se</h1>
-        <h2 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical"
-            uk-parallax="y: 100,0"><span uk-icon="icon: heart"></span>Become Empowered to Cook with Heart<span
-                uk-icon="icon: heart"></span></h2>
-    </div>
-    <div class="uk-flex break"></div>
-    <div id="sign-up" class="uk-flex">
-        <div class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical">
-            <h2>
-                Log in now to post and share recipes with the enitre community!
-            </h2>
-            <a href="/auth/google"><button class="uk-button uk-button-default">LOG IN</button></a>
+            <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="y: 100,0">Per
+                Se</h1>
+            <h2 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="y: 100,0">
+                <span uk-icon="icon: heart"></span>Become Empowered to Cook with Heart<span
+                    uk-icon="icon: heart"></span></h2>
         </div>
-    </div>
+        <div class="uk-flex break"></div>
+        <div id="sign-up" class="uk-flex">
+            <div class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                <% if (!user) { %>
+                <h2>
+                    Log in now to post and share recipes with the enitre community!
+                </h2>
+                <a href="/auth/google"><button class="uk-button uk-button-default">LOG IN</button></a>
+                <% } else { %>
+                <h2>Go to your collection of recipes to edit existing recipes or add more to your collection!</h2>
+                <a href="/recipes/myrecipes"><button class="uk-button uk-button-default">My Recipes</button></a>
+                <% } %>
+            </div>
+        </div>
 
-    <div class="uk-flex break"></div>
-    <div id="call-to" class="uk-flex">
-        <div class="uk-child-width-1-3@m uk-grid">
-            <% if (recipes) { %>
+        <div class="uk-flex break"></div>
+        <div id="call-to" class="uk-flex">
+            <div class="uk-child-width-1-3@m uk-grid">
+                <% if (recipes) { %>
                 <% recipes.forEach(function(r) { %>
-            <div>
-                <div class="uk-card uk-card-default">
-                    <div class="uk-card-media-top">
-                        <img src="<%= r.imgUrl %>" alt="<%= r.name %>">
-                    </div>
-                    <div class="uk-card-body">
-                        <h3 class="uk-card-title"><a href="/recipes/<%= r._id %>"><%= r.name %></a></h3>
-                        <h5><%= r.authorName %></h5>
-                        <h5><a href="/categories"><%= r.category %></a></h5>
-                        <p><%= r.description %></p>
+                <div>
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-media-top">
+                            <img src="<%= r.imgUrl %>" alt="<%= r.name %>">
+                        </div>
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title"><a href="/recipes/<%= r._id %>"><%= r.name %></a></h3>
+                            <h5><%= r.authorName %></h5>
+                            <h5><a href="/categories"><%= r.category %></a></h5>
+                            <p><%= r.description %></p>
+                        </div>
                     </div>
                 </div>
+                <% }) %>
+                <% } else { %>
+                <p>Please add some of your favorite recipes!</p>
+                <% } %>
             </div>
-            <% }) %>
-            <% } else { %>
-            <p>Please add some of your favorite recipes!</p>
-            <% } %>
         </div>
-     </div>   
 
 
-    <%- include ./partials/_footer %>
+        <div class="uk-flex break"></div>
+        <div class="footer uk-flex">
+            <div class="uk-column-1-3@m uk-colum-divider uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                <img src="../img/logo-black.png" alt="black logo">
+                <p>&copy; Copyright 2020 Per Se</p>
+                <p>Denver, CO <span uk-icon="icon: heart"></span></p>
+            </div>
+        </div>

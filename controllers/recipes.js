@@ -11,7 +11,31 @@ module.exports = {
   edit,
   update,
   delete: deleteOne,
+  cats,
+  catShow,
 };
+
+function catShow(req, res) {
+  Recipe.find({ category: req.params.id }, function (err, recipes) {
+    console.log(req.params.id);
+    console.log(recipes);
+
+    res.render("categories/show", {
+      recipes: recipes,
+      user: req.user,
+    });
+  });
+}
+
+function cats(req, res) {
+  Category.find({}, function (err, categories) {
+    res.render("categories/index", {
+      title: "Recipes by Category",
+      categories: categories,
+      user: req.user,
+    });
+  });
+}
 
 function deleteOne(req, res) {
   Recipe.findByIdAndDelete(req.params.id, function (err) {
@@ -60,14 +84,14 @@ function newRecipe(req, res) {
 }
 function index(req, res) {
   Recipe.find({})
-  .sort({ updatedAt: -1 })
-  .exec(function(err, recipes) {
-    res.render("recipes/index", {
-       user: req.user, 
-       recipes: recipes,
-       title: 'Newest Recipes' 
+    .sort({ updatedAt: -1 })
+    .exec(function (err, recipes) {
+      res.render("recipes/index", {
+        user: req.user,
+        recipes: recipes,
+        title: "Newest Recipes",
       });
-  });
+    });
 }
 function myRecipes(req, res) {
   Recipe.find({ author: req.user._id }, function (err, recipes) {

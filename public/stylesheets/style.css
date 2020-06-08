@@ -183,3 +183,26 @@ article img {
   font-size: 4em;
   color: plum;
 }
+#categories-hero {
+  /* Photo by Micheile Henderson on Unsplash */
+  background-image: url(../img/categories-hero.jpg);
+  height: 75vh;
+  background-size: cover;
+}
+
+#categories-hero {
+  font-size: 4em;
+  color: plum;
+}
+#categoriesShow-hero {
+  /* Photo by Charles-Adrien Fournier on Unsplash */
+  background-image: url(../img/categoriesShow-hero.jpg);
+  height: 75vh;
+  background-size: cover;
+}
+
+#categoriesShow-hero {
+  font-size: 4em;
+  color: plum;
+}
+

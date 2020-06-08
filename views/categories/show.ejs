@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title><%= recipes[0].category %> Recipes</title>
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css" />
-    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../../stylesheets/style.css">
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
@@ -35,14 +35,15 @@
                         <div class="uk-navbar-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="#">Active</a></li>
-                                <li><a href="#">Recipes</a></li>
+                                <li><a href="/"><%= recipes[0].category %> Recipes</a></li>
                                 <li class="uk-nav-header">Explore</li>
                                 <li><a href="/">HOME</a></li>
+                                <li><a href="#">Most Recent Recipes</a></li>
                                 <li><a href="/recipes/categories">Categories</a></li>
                                 <li class="uk-nav-divider"></li>
                                 <% if (user) { %>
                                 <li><a href="#">Logged in as <%= user.name %></a></li>
-                                <li><a href="/recipes/new">Create a New Recipe</a></li>
+                                <li><a href="/recipes/new">Add a New Recipe</a></li>
                                 <li><a href="/recipes/myrecipes">My Recipes</a></li>
                                 <li><a href="/logout">Logout</a></li>
                                 <% } else { %>
@@ -61,11 +62,11 @@
         <div class="uk-navbar-dropbar"></div>
 
     </div>
-    <div id="allRecipe-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
+    <div id="categoriesShow-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
         uk-parallax="bgy: -200">
 
-        <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="y: 100,0">Most
-            Recent Recipes</h1>
+        <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="y: 100,0">
+            <%= recipes[0].category %> Recipes</h1>
 
     </div>
     <div class="uk-flex break"></div>

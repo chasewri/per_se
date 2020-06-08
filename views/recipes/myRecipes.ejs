@@ -83,6 +83,14 @@
                         <h5><%= r.authorName %></h5>
                         <h5><a href="/recipes/categories/<%= r.category %>"><%= r.category %></a></h5>
                         <p><%= r.description %></p>
+                        <a class="uk-button uk-button-primary" href="/recipes/<%= recipe._id %>/edit">Edit this recipe</a>
+
+                        <br>
+                        <hr>
+                        <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+                    
+                            <button class="uk-button uk-button-primary" type="submit">DELETE!</button>
+                        </form>
                     </div>
                 </div>
             </div>

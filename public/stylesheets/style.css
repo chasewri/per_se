@@ -3,6 +3,10 @@ body {
   background-color: white;
   min-height: 100vh;
 }
+h1 {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1em 2em;
+}
 #index-hero {
   background-image: url('../img/hero-img.jpg');
   /* Photo by Becca Tapert on Unsplash */
@@ -14,11 +18,13 @@ body {
   font-size: 5em;
   font-weight: bold;
   font-style: italic;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1em 2em;
 }
 #sign-up {
   height: 50vh;
-  background: linear-gradient(white, black);
-  background: -webkit-linear-gradient(white, darkgray);
+  background: linear-gradient(45deg, white, lightgray);
+  background: -webkit-linear-gradient(45deg, white, lightgray);
 }
 #sign-up button {
   margin-top: 8vh;
@@ -30,6 +36,7 @@ body {
 }
 #call-to {
   height: 100vh;
+  margin-bottom: 50vh;
 }
 .uk-navbar-nav>li>a {
   color: black;
@@ -44,4 +51,57 @@ body {
 }
 .uk-navbar-container {
   min-height: 10vh;
+}
+.footer {
+  margin: 25vh auto 0 auto;
+  padding-bottom: 4vh;
+  padding-top: 2vh;
+  font-size: 1.2em;
+  background-color: plum;
+  color: white;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+.footer img {
+  height: 4vh;
+}
+#container {
+  height: 100%;
+}
+#create-hero {
+  background-image: url(../img/create-hero.jpg);
+  height: 75vh;
+  background-size: cover;
+  color: plum;
+}
+#create-hero h1 {
+  font-size: 4em;
+  color: plum;
+}
+form {
+  font-size: 1.6em;
+}
+form > textarea {
+  margin: 7vh auto;
+}
+.uk-navbar-dropdown-nav>li>a {
+  font-size: 1.5em;
+}
+.uk-navbar-dropdown-nav .uk-nav-header {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+#myRecipe-hero {
+  background-image: url(../img/myRecipeHero.jpg);
+  height: 75vh;
+  background-size: cover;
+}
+#myRecipe-hero h1 {
+  font-size: 4em;
+  color: plum;
+}
+.break {
+  height: 15vh;
 }

@@ -1,9 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var recipesCtrl = require('../controllers/recipes');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+// you're in recipes here
+router.get('/', isLoggedIn, recipesCtrl.index);
+router.get('/myRecipes', isLoggedIn, recipesCtrl.myRecipes);
+router.get('/new', isLoggedIn, recipesCtrl.new);
+router.post('/add', isLoggedIn, recipesCtrl.create);
+
+function isLoggedIn(req, res, next) {
+  if ( req.isAuthenticated() ) return next();
+  res.redirect('/auth/google');
+}
 
 module.exports = router;

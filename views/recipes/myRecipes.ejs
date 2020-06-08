@@ -1,5 +1,18 @@
-<%- include ./partials/_header %>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
+
+</head>
 <body>
     <div class="uk-position-relative">
 
@@ -9,7 +22,7 @@
 
                 <ul class="uk-navbar-nav">
                     <li>
-                        <a id="logo" href=""></span></a>
+                        <a id="logo" href=""></a>
                     </li>
             </div>
 
@@ -21,16 +34,17 @@
                         <div class="uk-navbar-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="#">Active</a></li>
-                                <li><a href="#">Home</a></li>
+                                <li><a href="#">My Recipes</a></li>
                                 <li class="uk-nav-header">Explore</li>
+                                <li><a href="/">HOME</a></li>
                                 <li><a href="#">Categories</a></li>
-                                <li><a href="/recipes/new">Create a New Recipe</a></li>
+                                <li><a href="#">Add a New Recipe</a></li>
                                 <li class="uk-nav-divider"></li>
                                 <% if (user) { %>
-                                <li><a href="#"></a>Logged in as <%= user.name %></li>
+                                <li><a href="#">Logged in as <%= user.name %></a></li>
                                 <li><a href="/logout">Logout</a></li>
                                 <% } else { %>
-                                <li><a href="/users">Log In</a></li>
+                                <li><a href="/google/oauth"></a>Log In</li>
                                 <% } %>
                             </ul>
                         </div>
@@ -43,28 +57,15 @@
         <div class="uk-navbar-dropbar"></div>
 
     </div>
-
-    <div id="container">
-    <div id="<%= heroId %>" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
-        uk-parallax="bgy: -300">
+    <div id="myRecipe-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
+        uk-parallax="bgy: -200">
 
         <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical"
-            uk-parallax="y: 100,0">Per Se</h1>
-        <h2 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical"
-            uk-parallax="y: 100,0"><span uk-icon="icon: heart"></span>Become Empowered to Cook with Heart<span
-                uk-icon="icon: heart"></span></h2>
-    </div>
-    <div class="uk-flex break"></div>
-    <div id="sign-up" class="uk-flex">
-        <div class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical">
-            <h2>
-                Log in now to post and share recipes with the enitre community!
-            </h2>
-            <a href="/users"><button class="uk-button uk-button-default">LOG IN</button></a>
-        </div>
-    </div>
+            uk-parallax="y: 100,0"><%= user.name %>'s Current Recipes</h1>
 
+    </div>
     <div class="uk-flex break"></div>
+    
     <div id="call-to" class="uk-flex">
         <div class="uk-child-width-1-3@m uk-grid">
             <% if (recipes) { %>
@@ -87,7 +88,5 @@
             <p>Please add some of your favorite recipes!</p>
             <% } %>
         </div>
-     </div>   
-
-
-    <%- include ./partials/_footer %>
+    </div> 
+    <%- include('../partials/_footer') %>

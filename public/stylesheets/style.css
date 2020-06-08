@@ -205,6 +205,9 @@ article img {
   font-size: 4em;
   color: plum;
 }
+.uk-link, a {
+  color: plum;
+}
 
 @media (max-width: 959px) {
   div.footer {

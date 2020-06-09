@@ -29,6 +29,7 @@ h1 {
   height: 50vh;
   background: linear-gradient(45deg, white, lightgray);
   background: -webkit-linear-gradient(45deg, white, lightgray);
+  transform: skewY(-11deg);
 }
 
 #sign-up button {
@@ -38,6 +39,10 @@ h1 {
   color: plum;
   border-width: 5px;
   border-radius: 10px;
+}
+
+.content {
+  transform: skewY(11deg);
 }
 
 #call-to {

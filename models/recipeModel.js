@@ -4,7 +4,10 @@ var Category = require("./categoryModel");
 
 var recipeSchema = new Schema(
   {
-    updated: { type: Date, default: Date.now },
+    updated: {
+      type: Date,
+      default: Date.now,
+    },
     name: {
       type: String,
       required: true,

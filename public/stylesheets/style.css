@@ -218,10 +218,8 @@ article img {
   div.footer {
     display: none;
   }
-}
-
-@media (max-width: 400px) {
   .hide {
     display: none;
   }
 }
+

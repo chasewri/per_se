@@ -220,3 +220,8 @@ article img {
   }
 }
 
+@media (max-width: 400px) {
+  .hide {
+    display: none;
+  }
+}

@@ -41,8 +41,8 @@
                                 <li><a href="/recipes/categories">Categories</a></li>
                                 <li class="uk-nav-divider"></li>
                                 <% if (user) { %>
-                                    <li><a href="#">Logged in as <%= user.name %></a></li>
-                                    <li><a href="/recipes/myrecipes">My Recipes</a></li>
+                                <li><a href="#">Logged in as <%= user.name %></a></li>
+                                <li><a href="/recipes/myrecipes">My Recipes</a></li>
                                 <li><a href="/logout">Logout</a></li>
                                 <% } else { %>
                                 <li><a href="/auth/google"></a>Log In</li>

@@ -26,8 +26,29 @@
             <a id="logo" href=""></a>
           </li>
       </div>
-
       <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="#">Explore</a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#">Active</a></li>
+                                <li><a href="#">Create a New Recipe</a></li>
+                                <li class="uk-nav-header">Explore</li>
+                                <li><a href="/">HOME</a></li>
+                                <li><a href="/recipes/categories">Categories</a></li>
+                                <li class="uk-nav-divider"></li>
+                                <% if (user) { %>
+                                <li><a href="#">Logged in as <%= user.name %></a></li>
+                                <li><a href="/recipes/myrecipes">My Recipes</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                                <% } else { %>
+                                <li><a href="/auth/google"></a>Log In</li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </li>
+                </ul?
 
         <ul class="uk-navbar-nav">
           <li>

@@ -4,12 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <% if (recipes[0]) { %>
-  <title><%= recipes[0].category %> Recipes</title>
-  <% } %>
+  <title><%= recipe.name %></title>
   <!-- CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css" />
-  <link rel="stylesheet" href="../../stylesheets/style.css">
+  <link rel="stylesheet" href="../stylesheets/style.css">
   <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
@@ -28,7 +26,6 @@
             <a id="logo" href=""></a>
           </li>
       </div>
-
       <div class="uk-navbar-right">
 
         <ul class="uk-navbar-nav">
@@ -37,23 +34,19 @@
             <div class="uk-navbar-dropdown">
               <ul class="uk-nav uk-navbar-dropdown-nav">
                 <li class="uk-active"><a href="#">Active</a></li>
-                <% if (recipes[0]) { %>
-                <li><a href="/"><%= recipes[0].category %> Recipes</a></li>
-                <% } %>
+                <li><a href="#"><%= recipe.name %></a></li>
                 <li class="uk-nav-header">Explore</li>
-                <li><a href="/">HOME</a></li>
-                <li><a href="#">Most Recent Recipes</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="/recipes/categories">Categories</a></li>
+                <li><a href="/recipes">Recipes</a></li>
                 <li class="uk-nav-divider"></li>
                 <% if (user) { %>
-                <li><a href="#">Logged in as <%= user.name %></a></li>
-                <li><a href="/recipes/new">Add a New Recipe</a></li>
+                <li><a href="#"></a>Logged in as <%= user.name %></li>
+                <li><a href="/recipes/new">Create a New Recipe</a></li>
                 <li><a href="/recipes/myrecipes">My Recipes</a></li>
                 <li><a href="/logout">Logout</a></li>
                 <% } else { %>
-
-                <li><a href="/auth/google"></a>Log In</li>
-
+                <li><a href="/auth/google">Log In</a></li>
                 <% } %>
               </ul>
             </div>
@@ -66,45 +59,39 @@
     <div class="uk-navbar-dropbar"></div>
 
   </div>
-  <div id="categoriesShow-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
-    uk-parallax="bgy: -200">
+  <div id="show-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top" uk-parallax="bgy: -200">
 
-    <% if (recipes[0]) { %>
     <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="y: 100,0">
-
-      <%= recipes[0].category %> Recipes</h1>
-    <% } else { %>
-    <h1>Sorry, there are no recipes in this collection. Please add one!</h1>
-    <% } %>
-
+      <%= recipe.name %></h1>
 
   </div>
   <div class="uk-flex break"></div>
+  <article class="uk-article">
 
-  <div id="call-to" class="uk-flex">
-    <div class="uk-child-width-1-3@m" uk-grid>
-      <% if (recipes) { %>
-      <% recipes.forEach(function(r) { %>
-      <div>
-        <div class="uk-card uk-card-default">
-          <div class="uk-card-media-top">
-            <img src="<%= r.imgUrl %>" alt="<%= r.name %>">
-          </div>
-          <div class="uk-card-body">
-            <h3 class="uk-card-title"><a href="/recipes/<%= r._id %>"><%= r.name %></a></h3>
-            <h5><%= r.authorName %></h5>
-            <h5><a href="/categories"><%= r.category %></a></h5>
-            <p><%= r.description %></p>
-          </div>
-        </div>
-      </div>
-      <% }) %>
-      <% } else { %>
-      <p>Please add some of your favorite recipes!</p>
-      <% } %>
+    <h2 class="uk-article-title"><%= recipe.name %></h2>
+
+    <p class="uk-article-meta">Created by <%= recipe.authorName %> at <%= recipe.createdAt %> </p>
+
+    <p class="uk-text-lead"><%= recipe.description %></p>
+    <div class="artImg">
+      <img src="<%= recipe.imgUrl %>" alt="<%= recipe.name %>">
     </div>
-  </div>
-  <div class="uk-flex break"></div>
-</body>
+    <p class="bold">Ingredients:</p>
+    <ul>
+      <% const arr = recipe.ingredients.split(',');
+            arr.forEach(function(i) { %>
+      <li><%= i %></li>
+      <%  }) %>
+    </ul>
+    <hr>
+    <p class="bold">Directions:</p>
+    <% const dirArr = recipe.directions.split('.');
+        dirArr.forEach(function(d) { %>
+    <p><%= d %></p>
+    <%   }) %>
 
-</html>
+  </article>
+
+  <div class="uk-flex break"></div>
+
+  <%- include('../partials/_footer') %>

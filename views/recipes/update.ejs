@@ -2,91 +2,91 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css" />
-    <link rel="stylesheet" href="../../stylesheets/style.css">
-    <!-- JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css" />
+  <link rel="stylesheet" href="../../stylesheets/style.css">
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
 
 </head>
 
 <body>
-    <div class="uk-position-relative">
+  <div class="uk-position-relative">
 
-        <nav class="uk-navbar-container" uk-navbar="dropbar: true">
+    <nav class="uk-navbar-container" uk-navbar="dropbar: true">
 
-            <div class="uk-navbar-left">
+      <div class="uk-navbar-left">
 
-                <ul class="uk-navbar-nav">
-                    <li>
-                        <a id="logo" href=""></a>
-                    </li>
+        <ul class="uk-navbar-nav">
+          <li>
+            <a id="logo" href=""></a>
+          </li>
+      </div>
+
+      <div class="uk-navbar-right">
+
+        <ul class="uk-navbar-nav">
+          <li>
+            <a href="#">Explore</a>
+            <div class="uk-navbar-dropdown">
+              <ul class="uk-nav uk-navbar-dropdown-nav">
+                <li class="uk-active"><a href="#">Active</a></li>
+                <li><a href="#">Create a New Recipe</a></li>
+                <li class="uk-nav-header">Explore</li>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/recipes/categories">Categories</a></li>
+                <li class="uk-nav-divider"></li>
+                <% if (user) { %>
+                <li><a href="#">Logged in as <%= user.name %></a></li>
+                <li><a href="/recipes/myrecipes">My Recipes</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <% } else { %>
+                <li><a href="/auth/google"></a>Log In</li>
+                <% } %>
+              </ul>
             </div>
+          </li>
+        </ul>
 
-            <div class="uk-navbar-right">
+      </div>
+    </nav>
 
-                <ul class="uk-navbar-nav">
-                    <li>
-                        <a href="#">Explore</a>
-                        <div class="uk-navbar-dropdown">
-                            <ul class="uk-nav uk-navbar-dropdown-nav">
-                                <li class="uk-active"><a href="#">Active</a></li>
-                                <li><a href="#">Create a New Recipe</a></li>
-                                <li class="uk-nav-header">Explore</li>
-                                <li><a href="/">HOME</a></li>
-                                <li><a href="/recipes/categories">Categories</a></li>
-                                <li class="uk-nav-divider"></li>
-                                <% if (user) { %>
-                                    <li><a href="#">Logged in as <%= user.name %></a></li>
-                                    <li><a href="/recipes/myrecipes">My Recipes</a></li>
-                                <li><a href="/logout">Logout</a></li>
-                                <% } else { %>
-                                <li><a href="/auth/google"></a>Log In</li>
-                                <% } %>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
+    <div class="uk-navbar-dropbar"></div>
 
-            </div>
-        </nav>
+  </div>
+  <div id="update-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
+    uk-parallax="bgy: -200">
 
-        <div class="uk-navbar-dropbar"></div>
+    <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="y: 100,0">Update
+      <%= recipe.name %></h1>
 
-    </div>
-    <div id="update-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
-        uk-parallax="bgy: -200">
+  </div>
+  <div class="uk-flex break"></div>
+  <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST" autocomplete="off">
+    <input class="uk-input" type="text" name="name" value="<%= recipe.name %>"> <br>
+    <input class="uk-input" type="text" name="imgUrl" value="<%= recipe.imgUrl %>"> <br>
+    <input class="uk-input" type="text" name="description" value="<%= recipe.description %>"> <br>
+    <label for="ingredients">All recipe ingredients here:</label> <br>
+    <textarea class="uk-textarea" name="ingredients" id="ingredients" cols="30"
+      rows="10"><%= recipe.ingredients %></textarea><br>
+    <label for="directions">All recipe steps go here:</label> <br>
+    <textarea class="uk-textarea" name="directions" id="directions" cols="30"
+      rows="10"><%= recipe.directions %></textarea><br>
+    <select class="uk-select" name="category">
+      <% categories.forEach(function(c) { %>
+      <option><%= c.category %></option>
+      <%   }) %>
+    </select>
+    <input class="uk-input" type="submit" value="UPDATE">
+  </form>
 
-        <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="y: 100,0">Update
-            <%= recipe.name %></h1>
+  <a class="uk-button" href="/recipes/myrecipes">CANCEL</a>
 
-    </div>
-    <div class="uk-flex break"></div>
-    <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST" autocomplete="off">
-        <input class="uk-input" type="text" name="name" value="<%= recipe.name %>"> <br>
-        <input class="uk-input" type="text" name="imgUrl" value="<%= recipe.imgUrl %>"> <br>
-        <input class="uk-input" type="text" name="description" value="<%= recipe.description %>"> <br>
-        <label for="ingredients">All recipe ingredients here:</label> <br>
-        <textarea class="uk-textarea" name="ingredients" id="ingredients" cols="30"
-            rows="10"><%= recipe.ingredients %></textarea><br>
-        <label for="directions">All recipe steps go here:</label> <br>
-        <textarea class="uk-textarea" name="directions" id="directions" cols="30"
-            rows="10"><%= recipe.directions %></textarea><br>
-        <select class="uk-select" name="category">
-            <% categories.forEach(function(c) { %>
-            <option><%= c.category %></option>
-            <%   }) %>
-        </select>
-        <input class="uk-input" type="submit" value="UPDATE">
-    </form>
-
-    <a class="uk-button" href="/recipes/myrecipes">CANCEL</a>
-
-    <div class="uk-flex break"></div>
+  <div class="uk-flex break"></div>
 
 </body>
 

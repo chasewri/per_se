@@ -2,97 +2,96 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= recipe.name %></title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css" />
-    <link rel="stylesheet" href="../stylesheets/style.css">
-    <!-- JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= recipe.name %></title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css" />
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
 
 </head>
 
 <body>
-    <div class="uk-position-relative">
+  <div class="uk-position-relative">
 
-        <nav class="uk-navbar-container" uk-navbar="dropbar: true">
+    <nav class="uk-navbar-container" uk-navbar="dropbar: true">
 
-            <div class="uk-navbar-left">
+      <div class="uk-navbar-left">
 
-                <ul class="uk-navbar-nav">
-                    <li>
-                        <a id="logo" href=""></a>
-                    </li>
+        <ul class="uk-navbar-nav">
+          <li>
+            <a id="logo" href=""></a>
+          </li>
+      </div>
+      <div class="uk-navbar-right">
+
+        <ul class="uk-navbar-nav">
+          <li>
+            <a href="#">Explore</a>
+            <div class="uk-navbar-dropdown">
+              <ul class="uk-nav uk-navbar-dropdown-nav">
+                <li class="uk-active"><a href="#">Active</a></li>
+                <li><a href="#"><%= recipe.name %></a></li>
+                <li class="uk-nav-header">Explore</li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/recipes/categories">Categories</a></li>
+                <li><a href="/recipes">Recipes</a></li>
+                <li class="uk-nav-divider"></li>
+                <% if (user) { %>
+                <li><a href="#"></a>Logged in as <%= user.name %></li>
+                <li><a href="/recipes/new">Create a New Recipe</a></li>
+                <li><a href="/recipes/myrecipes">My Recipes</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <% } else { %>
+                <li><a href="/auth/google">Log In</a></li>
+                <% } %>
+              </ul>
             </div>
-            <div class="uk-navbar-right">
-
-                <ul class="uk-navbar-nav">
-                    <li>
-                        <a href="#">Explore</a>
-                        <div class="uk-navbar-dropdown">
-                            <ul class="uk-nav uk-navbar-dropdown-nav">
-                                <li class="uk-active"><a href="#">Active</a></li>
-                                <li><a href="#"><%= recipe.name %></a></li>
-                                <li class="uk-nav-header">Explore</li>
-                                <li><a href="/">Home</a></li>
-                                <li><a href="/recipes/categories">Categories</a></li>
-                                <li><a href="/recipes">Recipes</a></li>
-                                <li class="uk-nav-divider"></li>
-                                <% if (user) { %>
-                                <li><a href="#"></a>Logged in as <%= user.name %></li>
-                                <li><a href="/recipes/new">Create a New Recipe</a></li>
-                                <li><a href="/recipes/myrecipes">My Recipes</a></li>
-                                <li><a href="/logout">Logout</a></li>
-                                <% } else { %>
-                                <li><a href="/auth/google">Log In</a></li>
-                                <% } %>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-
-            </div>
-        </nav>
-
-        <div class="uk-navbar-dropbar"></div>
-
-    </div>
-    <div id="show-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top"
-        uk-parallax="bgy: -200">
-
-        <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="y: 100,0">
-            <%= recipe.name %></h1>
-
-    </div>
-    <div class="uk-flex break"></div>
-    <article class="uk-article">
-
-        <h2 class="uk-article-title"><%= recipe.name %></h2>
-
-        <p class="uk-article-meta">Created by <%= recipe.authorName %> at <%= recipe.createdAt %> </p>
-
-        <p class="uk-text-lead"><%= recipe.description %></p>
-        <div class="artImg">
-            <img src="<%= recipe.imgUrl %>" alt="<%= recipe.name %>">
-        </div>
-        <p class="bold">Ingredients:</p>
-        <ul>
-            <% const arr = recipe.ingredients.split(',');
-            arr.forEach(function(i) { %>
-            <li><%= i %></li>
-            <%  }) %>
+          </li>
         </ul>
-        <hr>
-        <p class="bold">Directions:</p>
-        <% const dirArr = recipe.directions.split('.');
+
+      </div>
+    </nav>
+
+    <div class="uk-navbar-dropbar"></div>
+
+  </div>
+  <div id="show-hero" class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top" uk-parallax="bgy: -200">
+
+    <h1 class="uk-width-1-1@s uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="y: 100,0">
+      <%= recipe.name %></h1>
+
+  </div>
+  <div class="uk-flex break"></div>
+  <article class="uk-article">
+
+    <h2 class="uk-article-title"><%= recipe.name %></h2>
+
+    <p class="uk-article-meta">Created by <%= recipe.authorName %> at <%= recipe.createdAt %> </p>
+
+    <p class="uk-text-lead"><%= recipe.description %></p>
+    <div class="artImg">
+      <img src="<%= recipe.imgUrl %>" alt="<%= recipe.name %>">
+    </div>
+    <p class="bold">Ingredients:</p>
+    <ul>
+      <% const arr = recipe.ingredients.split(',');
+            arr.forEach(function(i) { %>
+      <li><%= i %></li>
+      <%  }) %>
+    </ul>
+    <hr>
+    <p class="bold">Directions:</p>
+    <% const dirArr = recipe.directions.split('.');
         dirArr.forEach(function(d) { %>
-        <p><%= d %></p>
-        <%   }) %>
+    <p><%= d %></p>
+    <%   }) %>
 
-    </article>
+  </article>
 
-    <div class="uk-flex break"></div>
+  <div class="uk-flex break"></div>
 
-    <%- include('../partials/_footer') %>
+  <%- include('../partials/_footer') %>

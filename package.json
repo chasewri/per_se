@@ -11,6 +11,7 @@
     "dotenv": "^8.2.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-limiter": "^1.6.1",
     "express-session": "^1.17.1",
     "helmet": "^4.1.1",
     "http-errors": "~1.6.3",
@@ -18,6 +19,7 @@
     "mongoose": "^5.9.17",
     "morgan": "~1.9.1",
     "passport": "^0.4.1",
-    "passport-google-oauth": "^2.0.0"
+    "passport-google-oauth": "^2.0.0",
+    "redis": "^3.0.2"
   }
 }
